@@ -48,6 +48,7 @@ To guarantee strict determinism, identical preprocessing was applied across doma
 Ensure your environment has a GPU available. Install the exact dependencies using:
 ```bash
 pip install -r requirements.txt
+```
 
 ### 2. Dataset Preparation
 
@@ -55,6 +56,7 @@ Download real.zip and sketch.zip from DomainNet and extract them into the raw_da
 
 ```bash
 python prepare_data.py
+```
 
 Expected output: A cleanly structured challenge_data/ folder.
 
@@ -64,6 +66,7 @@ Execute the baseline classifier which sequentially performs Feature Extraction a
 
 ```bash
 python main.py
+```
 
 Expected output: Training logs and the serialized weights file `resnet50_phaseA.pt`.
 
@@ -73,6 +76,7 @@ Generate the 180 synthetic cross-domain training tokens (30 per class):
 
 ```bash
 python generate_synthetic.py
+```
 
 Expected output: The directory `data/synthetic_target/` populated with stylized images.
 
@@ -82,6 +86,7 @@ Run the adaptation pipeline to evaluate the three strategies (Baseline, Target F
 
 ```bash
 python main_phaseC.py
+```
 
 Expected output: Final comparative metric table printed to the console and updated `.pt` weights.
 
@@ -91,5 +96,6 @@ Extract t-SNE projections and Grad-CAM spatial attention maps:
 
 ```bash
 python visualizations.py
+```
 
 Expected output: `tsne_faseA.png` and `gradcam_sample.png` saved in the root directory.
